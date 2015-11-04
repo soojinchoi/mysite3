@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+		<settings>
+			<setting name="jdbcTypeForNull" value="NULL" />
+		</settings>
+	<typeAliases>
+		<typeAlias alias="UserVo" type="com.bit2015.mysite3.vo.UserVo"></typeAlias>
+		<typeAlias alias="BoardVo" type="com.bit2015.mysite3.vo.BoardVo"></typeAlias>
+		<typeAlias alias="GuestbookVo" type="com.bit2015.mysite3.vo.GuestbookVo"></typeAlias>
+
+    </typeAliases>
+    	
+	<mappers>
+		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/guestbook.xml" />
+		<mapper resource="mybatis/mappers/board.xml" />
+	</mappers>
+	
+</configuration>

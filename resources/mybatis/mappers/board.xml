@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">		
+	<select id="getListAll" resultType="BoardVo">
+	    select a.no, a.title, a.member_no as memberNo, b.name as memberName, a.view_cnt as viewCnt,
+		to_char(a.reg_date, 'yyyy-mm-dd hh:MM:ss') as regDate
+		from board a,member b
+		where a.member_no = b.no 
+		order by a.reg_date desc
+	</select>
+	
+	<select id="getView" parameterType="long" resultType="BoardVo">
+		select no, title, content, member_no as memberNo from board where no=#{no}
+	</select>
+	
+	<insert id="insert" parameterType="BoardVo">
+		insert into BOARD VALUES(board_no_seq.nextval,#{title},#{content},#{memberNo},0, SYSDATE)
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		delete from board where no=#{no }
+	</delete>
+	
+	<update id="update" parameterType="BoardVo">
+		update board set title = #{title}, content = #{content} where no= #{no}
+	</update>
+	
+	<update id="viewCnt" parameterType="long">
+		update board 
+		set view_cnt= view_cnt + 1		
+		where no = #{no}
+	</update>
+</mapper>

@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+/* reset */
+*				{ margin:0; padding:0 }
+body			{ font:0.75em "맑은 고딕", 돋움, 굴림; text-align:center }
+ul, ol			{ list-style-type: none }
+
+/* layout */
+div#container	{ text-align:left; width:820px; margin:0 auto; background-color:#52586B}
+div#content		{ float:right; width:700px; background-color:#f3f3f1 }
+div#navigation	{ float:left; width:120px;  }
+div#footer		{ clear:both; width:100% }
+
+/* header */
+div#header	h1				{ height:70px; line-height:70px; margin:0; padding-left:15px; color:#3ACCAE }
+div#header	ul				{ height:20px; margin:0 20px 10px 0 } 
+div#header	li				{ float:right; color:#fff}
+div#header	li a 			{ color:#ffffff; font-weight:normal; margin-left:10px; text-decoration:none; }
+div#header	li a:HOVER 		{ text-decoration:underline; }
+div#header	li a:active	    { color:#3ACCAE }
+
+/* navigation */
+div#navigation ul			{ width:120px; margin-top:1px }
+div#navigation li			{ width:120px; background-color:#52586B; margin-top:-1px;}
+div#navigation li a			{ display:block; font-weight:bold; color:#fff; width:98px; padding:8px 15px; font-size:1.2em }
+div#navigation li a:link	{ color:#fff; text-decoration:none; }
+div#navigation li a:hover	{ text-decoration:underline; }
+div#navigation li a:ACTIVE	{ color:#3ACCAE }
+
+
+/* footer */
+div#footer		{ background:#303030; color: #FFF }
+div#footer p	{ margin:0;padding:5px 10px }
+
+

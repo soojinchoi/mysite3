@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+@import "mysite.css";
+
+#user		{ margin:20px auto;	width:540px; }
+#join-form	{
+	background-color : #f9f9f9;
+	width:260px;
+	padding:15px;
+	border:1px solid #c0c0c0;
+	border-radius: 5px;
+	margin:50px auto;
+}
+#login-form	{
+	background-color : #f9f9f9;
+	width:190px;
+	padding:10px 20px 15px 20px;
+	border:1px solid #d0d0d0;
+	border-radius: 5px;
+	margin:60px auto;
+}
+
+fieldset				{ border:none; margin-top:10px }
+label, legend			{ padding:5px; margin-top:10px}
+input[type="submit"]	{ 	
+	
+							font-weight:bold;
+							color: white;
+							display:block; 
+						  	width:185px; 
+						 	margin:10px auto 5px auto; 
+						  	padding:9px;
+						  	border:none; border-radius: 3px;
+						  	background-color:#339EA8;
+						}
+input[type="submit"]:HOVER{ 	
+							font-weight:bold;
+							color: white;
+							display:block; 
+						  	width:185px; 
+						 	margin:10px auto 5px auto; 
+						  	padding:9px;
+						  	border:none; border-radius: 3px;
+						  	background-color:#277d85;
+						}
+						
+input[type="button"]	{ 	
+							float:right;
+							font-size: 1.0em;
+							font-weight:normal;
+							color: white;
+							display:inline-block; 
+						  	width:70px; 
+						  	margin-top:5px;
+						  	padding:8px;
+						  	border:none; border-radius:3px;
+						  	background-color:#52586B;
+						}	
+							
+input[type="button"]:HOVER	{ background-color:#383d49; }							
+										
+input[type="checkbox"] { margin : 15px 0 20px 45px; }
+#name { margin-top: 5px; margin-bottom: 10px}
+#email, #password,  #email-fix { margin-top: 5px; margin-bottom: 10px}
+#name, #email, #password, #email-fix { border: 1px solid #d0d0d0; 
+		 padding: 7px; width: 170px; }		
+		 
+#email:FOCUS, #email:HOVER, #password:FOCUS, #password:HOVER, 
+#name:FOCUS, #name:HOVER { border: 1px solid #339EA8; 
+						   padding: 7px; width: 170px; }	
+									
+#user p	{ text-align:center; padding:15px; }
+
+#user p.jr-success	{ height:200px }
+}
