@@ -19,7 +19,7 @@
 				<form id="search_form" action="" method="post">
 					<input type="text" id="kwd" name="kwd" value=""> <input type="submit" value="찾기">
 				</form>
-				<table id="hoverboard" class="tbl-ex">
+				<table id="hoverboard" class="tbl-ex" >
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -31,10 +31,14 @@
 					<c:set var='count' value='${fn:length(list)}'></c:set>
 					<c:forEach items='${list}' var="list" varStatus="status">
 						<tr>
-							<td>${count-status.index}</td>
-							<td><a href="/mysite3/board/view/${list.no}">${list.title}</a></td>
+							<td id ="center">${count-status.index}</td>
+							<td id ="title" style="padding-left: ${(list.depth -1)*10}px">
+							<c:if test="${list.depth > 1}">
+								<img src="/mysite3/assets/images/reply.png" style="width:20px">
+							</c:if>
+							<a href="/mysite3/board/view/${list.no}">${list.title}</a></td>
 							<td>${list.memberName}</td>
-							<td>${list.viewCnt}</td>
+							<td id ="center">${list.viewCnt}</td>
 							<td>${list.regDate}</td>
 							<td><c:choose>
 									<c:when
@@ -48,7 +52,21 @@
 						</tr>
 					</c:forEach>
 				</table>
+				
+				<div class="pager">
+					<ul>
+						<li class="pg-prev"><a href="">◀ 이전</a></li>
+						<li><a href="">11</a></li>
+						<li><a href="">12</a></li>
+						<li>13</li>
+						<li><a href="">14</a></li>
+						<li><a href="">15</a></li>
+						<li class="pg-next"><a href="">다음 ▶</a></li>
+					</ul>
+				</div>
+				
 				<div class="bottom">
+					
 					<c:choose>
 						<c:when test="${not empty authUser}">
 							<a href="/mysite3/board/write" id="new-book">글쓰기</a>

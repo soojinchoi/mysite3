@@ -18,7 +18,9 @@
 		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 		<div id="content">
 			<div id="board" class="board-form">
+			
 				<table class="tbl-ex">
+				
 					<tr>
 						<th colspan="2">글보기</th>
 					</tr>
@@ -37,6 +39,7 @@
 				</table>
 				<div class="bottom">
 					<a href="/mysite3/board/list">글목록</a>
+					<a href="/mysite3/board/writereply/${vo.groupNo}&${vo.orderNo}&${vo.depth}">답글쓰기</a>
 					<c:choose>
 						<c:when test="${(not empty authUser) && (authUser.no == vo.memberNo)}">
 						<a href="/mysite3/board/modifyform/${vo.no}">글수정</a>

@@ -8,29 +8,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bit2015.mysite3.service.BoardService;
-import com.bit2015.mysite3.vo.BoardVo;
+import com.bit2015.mysite3.service.NewBoardService;
+import com.bit2015.mysite3.vo.NewBoardVo;
 
 @Controller
 @RequestMapping("/board")
-public class BoardController {
+public class NewBoardController {
 	
 	@Autowired
-	BoardService boardService;
+	NewBoardService boardService;
 	
 	@RequestMapping("/list")
 	public String list( Model model ){		
-		List<BoardVo> list = boardService.getList();
+		List<NewBoardVo> list = boardService.getList();
 		model.addAttribute("list", list);	
 		return "/board/list";		
 	}
 	
 	@RequestMapping("/view/{no}")
 	public String view( @PathVariable("no")Long no, Model model){		
-		BoardVo vo = boardService.view(no);
-		model.addAttribute("vo",vo);		
+		NewBoardVo vo = boardService.view(no);
+		model.addAttribute("vo",vo);	
+		System.out.println(vo);
 		return "/board/view";
 	}
 	
@@ -39,12 +39,19 @@ public class BoardController {
 		return "/board/write";
 	}
 	
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String write(@ModelAttribute BoardVo vo){
+	@RequestMapping("/writereply/{groupNo}&{orderNo}&{depth}")
+	public String writeReplyForm(@ModelAttribute NewBoardVo vo,Model model){
+		model.addAttribute("vo", vo );
+		System.out.println(vo);
+		return "/board/write";
+	}
+	@RequestMapping("/insert")
+	public String write(@ModelAttribute NewBoardVo vo) {
 		boardService.write(vo);
+		System.out.println(vo);
 		return "redirect:/board/list";
 	}
-	
+
 	@RequestMapping("/delete/{no}")
 	public String delete( @PathVariable("no") Long no, Model model){
 		boardService.delete(no);
@@ -54,13 +61,13 @@ public class BoardController {
 	
 	@RequestMapping("/modifyform/{no}")
 	public String modifyForm(@PathVariable("no") Long no, Model model){
-		BoardVo vo = boardService.view(no);
+		NewBoardVo vo = boardService.view(no);
 		model.addAttribute("vo",vo);
 		return "/board/modify";
 	}
 	
 	@RequestMapping("/modi")
-	public String modify(@ModelAttribute BoardVo vo){
+	public String modify(@ModelAttribute NewBoardVo vo){
 		boardService.modify(vo);
 		return "redirect:/board/list";
 	}

@@ -15,6 +15,9 @@
 		<div id="content">
 			<div id="board">
 				<form class="board-form" method="post" action="/mysite3/board/insert">
+					<input type="hidden" name="groupNo" value="${vo.groupNo}">
+					<input type="hidden" name="orderNo" value="${vo.orderNo}">
+					<input type="hidden" name="depth" value="${vo.depth}">
 					<c:if test="${not empty authUser}">
 					<input type="hidden" name="memberNo" value="${authUser.no}">
 					</c:if>

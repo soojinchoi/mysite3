@@ -6,26 +6,26 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bit2015.mysite3.vo.BoardVo;
+import com.bit2015.mysite3.vo.NewBoardVo;
 
 @Repository
-public class BoardDao {
+public class NewBoardDao {
 	
 	@Autowired
 	SqlSession sqlSession;
 	
-	public List<BoardVo> getListAll(){
+	public List<NewBoardVo> getListAll(){
 		
-		List<BoardVo> list = sqlSession.selectList("board.getListAll");			
+		List<NewBoardVo> list = sqlSession.selectList("board.getListAll");			
 		return list;
 	}
 	
-	public BoardVo getView(Long no){
-		BoardVo boardVo = sqlSession.selectOne("board.getView", no);
+	public NewBoardVo getView(Long no){
+		NewBoardVo boardVo = sqlSession.selectOne("board.getView", no);
 		return boardVo;			
 	}
 	
-	public void insert(BoardVo vo){	
+	public void insert(NewBoardVo vo){	
 		sqlSession.insert("board.insert",vo);
 	}
 
@@ -33,7 +33,7 @@ public class BoardDao {
 		sqlSession.delete("board.delete",no);		
 	}
 	
-	public void modify( BoardVo vo)  {
+	public void modify( NewBoardVo vo)  {
 		sqlSession.update("board.update", vo );
 	}
 	

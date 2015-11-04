@@ -34,8 +34,8 @@ a { text-decoration:none; color: #7e7e7e;}
 	color:#52586B;
 }	
 
-#guestbook input[type="submit"] {
-	font-size: 0.9em;
+#guestbook input[type="submit"], #btn-next {
+	font-size: 1.0em;
 	color: white;
 	width:70px; 
 	padding:5px;
@@ -44,7 +44,9 @@ a { text-decoration:none; color: #7e7e7e;}
 	background-color:#339EA8;
 }
 
-#guestbook .table-gb input[type="submit"]:HOVER {
+#buttons { text-align: center;}
+
+#guestbook .table-gb input[type="submit"]:HOVER, #btn-next:HOVER {
 	background-color:#267980;
 }
 

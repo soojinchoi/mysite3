@@ -5,27 +5,27 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bit2015.mysite3.dao.BoardDao;
-import com.bit2015.mysite3.vo.BoardVo;
+import com.bit2015.mysite3.dao.NewBoardDao;
+import com.bit2015.mysite3.vo.NewBoardVo;
 
 @Service
-public class BoardService {
+public class NewBoardService {
 	
 	@Autowired
-	BoardDao boardDao;
+	NewBoardDao boardDao;
 	
-	public List<BoardVo> getList(){
-		List<BoardVo> list = boardDao.getListAll();
+	public List<NewBoardVo> getList(){
+		List<NewBoardVo> list = boardDao.getListAll();
 		return list;
 	}
 	
-	public BoardVo view(Long no){
-		BoardVo boardVo = boardDao.getView(no);
+	public NewBoardVo view(Long no){
+		NewBoardVo boardVo = boardDao.getView(no);
 		boardDao.increaseViewCount(no);
 		return boardVo;
 	}
 	
-	public void write(BoardVo vo){
+	public void write(NewBoardVo vo){		
 		boardDao.insert(vo);
 	}
 	
@@ -33,7 +33,7 @@ public class BoardService {
 		boardDao.delete(no);
 	}
 	
-	public void modify(BoardVo vo){
+	public void modify(NewBoardVo vo){
 		boardDao.modify(vo);
 	}
 	

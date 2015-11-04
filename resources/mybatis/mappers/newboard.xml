@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">		
+	<select id="getListAll" resultType="NewBoardVo">
+	    select a.no, a.title, a.member_no as memberNo, b.name as memberName, 
+	    a.view_cnt as viewCnt, a.group_no as groupNo, a.order_no as orderNo, a.depth,
+		to_char(a.reg_date, 'yyyy-mm-dd hh:MM:ss') as regDate
+		from newboard a,member b
+		where a.member_no = b.no 
+		order by a.group_no DESC, a.order_no ASC
+		
+	</select>
+	
+	<select id="getView" parameterType="long" resultType="NewBoardVo">
+		select no, title, content, member_no as memberNo, 
+		group_no as groupNo, order_no as orderNo, depth
+		from newboard where no=#{no}
+	</select>
+	
+	<insert id="insert" parameterType="NewBoardVo">
+		<![CDATA[insert into NEWBOARD]]> 
+		<choose>
+		<when test="groupNo == null">
+		<![CDATA[
+			VALUES(newboard_no_seq.nextval,#{title},#{content},#{memberNo},0, SYSDATE, 
+			nvl( ( select max( group_no ) from newboard ), 0) + 1, 1, 1 )
+			]]> 
+		</when>
+		<otherwise>
+		<![CDATA[
+			VALUES(newboard_no_seq.nextval,#{title},#{content},#{memberNo},0, SYSDATE, 
+			#{groupNo}, #{orderNo} + 1, #{depth} + 1)
+			]]> 
+		</otherwise>
+		</choose>
+	
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		delete from newboard where no=#{no }
+	</delete>
+	
+	<update id="update" parameterType="NewBoardVo">
+		update newboard set title = #{title}, content = #{content} where no= #{no}
+	</update>
+	
+	<update id="viewCnt" parameterType="long">
+		update newboard 
+		set view_cnt= view_cnt + 1		
+		where no = #{no}
+	</update>
+</mapper>

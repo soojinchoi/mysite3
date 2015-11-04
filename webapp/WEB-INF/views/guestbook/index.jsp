@@ -15,17 +15,21 @@
 <link href="/mysite3/assets/css/guestbook.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/mysite3/assets/js/jquery/jquery-1.9.0.js"></script>
 <script>
-$(function(){
-	$("#guestbook-form").submit(function(){
-		
-		if($("#name").val() == ""){
-			alert("이름이 비어있습니다.");
-			$("#name").focus();
+$(function() {
+	$( "#guestbook-form" ).submit( function(){
+		if( $( "input[name='name']" ).val() == "" ) {
 			return false;
-		}		
-	});
+		}
+		if( $( "input[name='password']" ).val() == "" ) {
+			return false;
+		}
+		if( $( "#textarea-content" ).val() == "" ) {
+			return false;
+		}
+		
+		return true;
+	});	
 });
-
 </script>
 </head>
 <body>
@@ -47,7 +51,11 @@ $(function(){
 						</tr>
 					</table>
 				</form>
-				
+				<div id="list"></div>
+				<div id="buttons">
+					<button id="btn-next">next</button>
+				</div>
+
 				<ul>
 					<li>
 						<c:set var='count' value='${fn:length(list)}'></c:set>

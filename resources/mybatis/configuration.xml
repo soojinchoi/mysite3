@@ -6,7 +6,7 @@
 		</settings>
 	<typeAliases>
 		<typeAlias alias="UserVo" type="com.bit2015.mysite3.vo.UserVo"></typeAlias>
-		<typeAlias alias="BoardVo" type="com.bit2015.mysite3.vo.BoardVo"></typeAlias>
+		<typeAlias alias="NewBoardVo" type="com.bit2015.mysite3.vo.NewBoardVo"></typeAlias>
 		<typeAlias alias="GuestbookVo" type="com.bit2015.mysite3.vo.GuestbookVo"></typeAlias>
 
     </typeAliases>
@@ -14,7 +14,7 @@
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />
 		<mapper resource="mybatis/mappers/guestbook.xml" />
-		<mapper resource="mybatis/mappers/board.xml" />
+		<mapper resource="mybatis/mappers/newboard.xml" />
 	</mappers>
 	
 </configuration>

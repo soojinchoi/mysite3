@@ -33,10 +33,12 @@ input#kwd	{
 	border-bottom:2px solid #52586B;
 }
 
+
+#center { text-align:center; 	}
 .tbl-ex th, 
 .tbl-ex td	{ 
 	padding:8px;
-	text-align:center; 	 
+	text-align:left; 	 
 }
 	
 .tbl-ex th	{ 
@@ -126,3 +128,14 @@ a.del	{
 	background:url("/mysite3/assets/images/deldel.png") no-repeat 0 0;
 	font-size:0;
 }
+
+/*
+	pager
+*/
+#board .pager		{ width:100%; text-align:center; padding:10px 0 }
+#board .pager ul	{ margin:0 auto }
+#board .pager ul li	{ color:#ff1e1e; display:inline; margin-left:15px; font-weight:bold; font-family: '돋움',dotum,Helvetica,sans-serif; }
+#board .pager a:link,
+#board .pager a:visited,
+#board .pager a:active,
+#board .pager a:hover { color:#666; text-decoration:none }
